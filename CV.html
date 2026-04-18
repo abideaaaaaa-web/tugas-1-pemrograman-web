@@ -218,9 +218,134 @@
         font-size: 1.2rem;
       }
 
+      /* ==================== GALLERY SECTION ==================== */
+      .gallery-section {
+        max-width: 900px;
+        margin: 40px auto;
+        background: linear-gradient(135deg, #1a2332 0%, #2d3748 100%);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .gallery-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .gallery-header {
+        background: linear-gradient(135deg, #4a9d8e 0%, #3d8577 100%);
+        padding: 30px;
+        text-align: center;
+        color: white;
+      }
+
+      .gallery-header h2 {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+
+      .gallery-header p {
+        font-size: 1.1rem;
+        opacity: 0.95;
+      }
+
+      .gallery-intro {
+        padding: 30px;
+        background: linear-gradient(180deg, #1e3a47 0%, #264653 100%);
+        color: #e8e8e8;
+        line-height: 1.8;
+        font-size: 1.05rem;
+        text-align: center;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        padding: 35px;
+        background: linear-gradient(180deg, #2b2d42 0%, #1a1a2e 100%);
+      }
+
+      .gallery-item {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        border: 1px solid rgba(74, 157, 142, 0.2);
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+
+      .gallery-item.visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 15px 40px rgba(74, 157, 142, 0.3);
+        border-color: rgba(74, 157, 142, 0.5);
+      }
+
+      .gallery-image-wrapper {
+        width: 100%;
+        height: 280px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .gallery-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item:hover .gallery-image {
+        transform: scale(1.1);
+      }
+
+      .gallery-caption {
+        padding: 20px;
+        color: #f5e6d3;
+      }
+
+      .gallery-caption h3 {
+        font-size: 1.15rem;
+        margin-bottom: 10px;
+        color: #4a9d8e;
+        font-weight: 600;
+      }
+
+      .gallery-caption p {
+        font-size: 0.92rem;
+        line-height: 1.65;
+        color: #d4d4d4;
+      }
+
+      /* Gallery Footer */
+      .gallery-footer {
+        background: linear-gradient(135deg, #4a9d8e 0%, #3d8577 100%);
+        padding: 25px;
+        text-align: center;
+        color: white;
+      }
+
+      .gallery-footer p {
+        font-size: 1.05rem;
+        font-style: italic;
+        line-height: 1.7;
+      }
+
       /* Responsive Design */
       @media (max-width: 768px) {
-        .cv-container {
+        .cv-container,
+        .gallery-section {
           margin-top: 80px;
         }
 
@@ -240,6 +365,15 @@
 
         .main-content {
           grid-template-columns: 1fr;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+          padding: 20px;
+        }
+
+        .gallery-header h2 {
+          font-size: 1.8rem;
         }
       }
     </style>
@@ -361,7 +495,7 @@
               <ul class="experience-list">
                 <li>Anggota Departemen KPSDM (2025 - 2026)</li>
                 <li>Anggota Departemen KPSDM (PDK) (2025 - 2026)</li>
-                <li>Anggota Departemen Medifo IHMPK (2024 - 2025)</li>
+                <li>Anggota Departemen Medifo IHMPK (2024 - 5)</li>
                 <li>
                   Bertanggung jawab atas dokumentasi dan publikasi digital
                   organisasi.
@@ -377,5 +511,335 @@
         </div>
       </div>
     </div>
+
+    <!-- ==================== GALLERY SECTION ==================== -->
+    <div class="gallery-section" id="gallerySection">
+      <div class="gallery-header">
+        <h2><i class="fas fa-images"></i> Galeri Perjalanan Hidupku</h2>
+        <p>Momen-momen berharga yang membentuk siapa aku saat ini</p>
+      </div>
+
+      <div class="gallery-intro">
+        Setiap foto memiliki cerita. Melalui galeri ini, aku ingin berbagi
+        potongan-potongan perjalanan hidupku—dari momen kebahagiaan sederhana
+        hingga pencapaian yang membanggakan. Ini adalah bukti nyata dari
+        semangat dan dedikasiku dalam menjalani setiap hari dengan penuh makna.
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Photo 1 -->
+        <div class="gallery-item">
+          <div class="gallery-image-wrapper">
+            <img
+              src="media/+62 821-8170-3014 20260125_133649"
+              alt="Foto Profil WhatsApp"
+              class="gallery-image"
+            />
+          </div>
+          <div class="gallery-caption">
+            <h3>Identitasku</h3>
+            <p>
+              Foto profil resmi yang merepresentasikan identitasku sebagai
+              mahasiswa dan content creator. Senyum ini mencerminkan optimisme
+              dan semangatku dalam mengejar impian.
+            </p>
+          </div>
+        </div>
+
+        <!-- Photo 2 -->
+        <div class="gallery-item">
+          <div class="gallery-image-wrapper">
+            <img
+              src="media/1775083367660.png"
+              alt="Kartu Nama Digital"
+              class="gallery-image"
+            />
+          </div>
+          <div class="gallery-caption">
+            <h3>Kartu Nama Digital</h3>
+            <p>
+              Desain kartu namaku yang menampilkan profesionalisme dalam dunia
+              digital. Ini adalah langkah awal dalam membangun personal branding
+              yang kuat.
+            </p>
+          </div>
+        </div>
+
+        <!-- Photo 3 -->
+        <div class="gallery-item">
+          <div class="gallery-image-wrapper">
+            <img
+              src="media/IMG-20251110-WA0034.jpg"
+              alt="Momen Santai"
+              class="gallery-image"
+            />
+          </div>
+          <div class="gallery-caption">
+            <h3>Momen Santai</h3>
+            <p>
+              Saat-saat relaksasi di tengah kesibukan kuliah dan organisasi.
+              Menyeimbangkan hidup itu penting untuk menjaga kreativitas tetap
+              mengalir.
+            </p>
+          </div>
+        </div>
+
+        <!-- Photo 4 -->
+        <div class="gallery-item">
+          <div class="gallery-image-wrapper">
+            <img
+              src="media/IMG-20260416-WA0033.jpg"
+              alt="Berkreasi di Depan Kamera"
+              class="gallery-image"
+            />
+          </div>
+          <div class="gallery-caption">
+            <h3>Berkreasi di Depan Kamera</h3>
+            <p>
+              Proses pembuatan konten video—salah satu passion terbesarku. Di
+              balik setiap video ada jam-jam editing dan dedikasi untuk
+              menghasilkan karya terbaik.
+            </p>
+          </div>
+        </div>
+
+        <!-- Photo 5 -->
+        <div class="gallery-item">
+          <div class="gallery-image-wrapper">
+            <img
+              src="media/IMG-20260416-WA0038.jpg"
+              alt="Fokus dan Konsentrasi"
+              class="gallery-image"
+            />
+          </div>
+          <div class="gallery-caption">
+            <h3>Fokus dan Konsentrasi</h3>
+            <p>
+              Momen ketika aku benar-benar tenggelam dalam pekerjaan. Baik itu
+              mengerjakan tugas kuliah, editing video, atau merencanakan project
+              baru—fokus adalah kunci kesuksesan.
+            </p>
+          </div>
+        </div>
+
+        <!-- Photo 6 -->
+        <div class="gallery-item">
+          <div class="gallery-image-wrapper">
+            <img
+              src="media/IMG-20260416-WA0045.jpg"
+              alt="Jalan-Jalan Seru"
+              class="gallery-image"
+            />
+          </div>
+          <div class="gallery-caption">
+            <h3>Jalan-Jalan Seru</h3>
+            <p>
+              Eksplorasi kota Samarinda dan sekitarnya. Setiap jalan yang
+              kutelusuri memberikan inspirasi baru untuk konten-konten
+              kreatifku.
+            </p>
+          </div>
+        </div>
+
+        <!-- Photo 7 -->
+        <div class="gallery-item">
+          <div class="gallery-image-wrapper">
+            <img
+              src="media/IMG-20260416-WA0056.jpg"
+              alt="Teman-Teman Terbaik"
+              class="gallery-image"
+            />
+          </div>
+          <div class="gallery-caption">
+            <h3>Teman-Teman Terbaik</h3>
+            <p>
+              Momen bersama teman-teman kampus yang selalu support dan
+              menginspirasi. Persahabatan adalah fondasi terkuat dalam
+              perjalanan mahasiswa.
+            </p>
+          </div>
+        </div>
+
+        <!-- Photo 8 -->
+        <div class="gallery-item">
+          <div class="gallery-image-wrapper">
+            <img
+              src="media/IMG-20260416-WA0087.jpg"
+              alt="Aktivitas Organisasi"
+              class="gallery-image"
+            />
+          </div>
+          <div class="gallery-caption">
+            <h3>Aktivitas Organisasi</h3>
+            <p>
+              Dokumentasi kegiatan di HIMAPK Unmul. Berkontribusi dalam
+              organisasi mengajarkanku tentang kepemimpinan, kerja tim, dan
+              tanggung jawab.
+            </p>
+          </div>
+        </div>
+
+        <!-- Photo 9 -->
+        <div class="gallery-item">
+          <div class="gallery-image-wrapper">
+            <img
+              src="media/IMG-20260416-WA0131.jpg"
+              alt="Behind The Scene"
+              class="gallery-image"
+            />
+          </div>
+          <div class="gallery-caption">
+            <h3>Behind The Scene</h3>
+            <p>
+              Di balik layar proses produksi video. Setup kamera, pencahayaan,
+              dan persiapan teknis yang menunjukkan sisi profesional dalam
+              berkarya.
+            </p>
+          </div>
+        </div>
+
+        <!-- Photo 10 -->
+        <div class="gallery-item">
+          <div class="gallery-image-wrapper">
+            <img
+              src="media/IMG-20260416-WA0161.jpg"
+              alt="Pencapaian Pribadi"
+              class="gallery-image"
+            />
+          </div>
+          <div class="gallery-caption">
+            <h3>Pencapaian Pribadi</h3>
+            <p>
+              Momen kebanggaan ketika berhasil menyelesaikan project atau
+              mencapai target. Setiap achievement adalah motivasi untuk terus
+              berkembang.
+            </p>
+          </div>
+        </div>
+
+        <!-- Photo 11 -->
+        <div class="gallery-item">
+          <div class="gallery-image-wrapper">
+            <img
+              src="media/IMG-20260416-WA0184.jpg"
+              alt="Nature Escape"
+              class="gallery-image"
+            />
+          </div>
+          <div class="gallery-caption">
+            <h3>Nature Escape</h3>
+            <p>
+              Melepas penat di alam terbuka. Keindahan alam Kalimantan
+              memberikan ketenangan dan ide-ide segar untuk konten kreatif.
+            </p>
+          </div>
+        </div>
+
+        <!-- Photo 12 -->
+        <div class="gallery-item">
+          <div class="gallery-image-wrapper">
+            <img
+              src="media/IMG-20260416-WA0235.jpg"
+              alt="Workshop & Seminar"
+              class="gallery-image"
+            />
+          </div>
+          <div class="gallery-caption">
+            <h3>Workshop & Seminar</h3>
+            <p>
+              Menghadiri acara pengembangan diri dan networking. Selalu haus
+              akan ilmu baru dan kesempatan untuk bertemu orang-orang hebat.
+            </p>
+          </div>
+        </div>
+
+        <!-- Photo 13 -->
+        <div class="gallery-item">
+          <div class="gallery-image-wrapper">
+            <img
+              src="media/IMG-20260416-WA0263.jpg"
+              alt="Celebration Time"
+              class="gallery-image"
+            />
+          </div>
+          <div class="gallery-caption">
+            <h3>Celebration Time</h3>
+            <p>
+              Momen perayaan—baik itu ulang tahun, kelulusan, atau pencapaian
+              lainnya. Bersyukur atas setiap milestone dalam perjalanan hidup.
+            </p>
+          </div>
+        </div>
+
+        <!-- Photo 14 -->
+        <div class="gallery-item">
+          <div class="gallery-image-wrapper">
+            <img
+              src="media/IMG-20260416-WA0264.jpg"
+              alt="Looking Forward"
+              class="gallery-image"
+            />
+          </div>
+          <div class="gallery-caption">
+            <h3>Looking Forward</h3>
+            <p>
+              Foto terakhir yang menyimpan harapan dan mimpi-mimpi besar untuk
+              masa depan. Siap menghadapi tantangan baru dengan percaya diri dan
+              semangat yang tak pernah padam!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-footer">
+        <p>
+          "Setiap foto adalah cerminan dari perjalanan panjang yang penuh
+          pembelajaran. Terima kasih sudah menjadi bagian dari ceritaku."
+          <br />
+          <strong>— Muqbil Ábid Al-Hafidz</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- JavaScript for Scroll Animation -->
+    <script>
+      // Gallery Section Scroll Animation
+      const gallerySection = document.getElementById("gallerySection");
+      const galleryItems = document.querySelectorAll(".gallery-item");
+
+      // Function to check if element is in viewport
+      function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+          rect.top <=
+            (window.innerHeight || document.documentElement.clientHeight) *
+              0.85 && rect.bottom >= 0
+        );
+      }
+
+      // Handle scroll events
+      function handleScroll() {
+        // Animate gallery section
+        if (isInViewport(gallerySection)) {
+          gallerySection.classList.add("visible");
+
+          // Stagger animation for each gallery item
+          galleryItems.forEach((item, index) => {
+            setTimeout(() => {
+              if (isInViewport(item)) {
+                item.classList.add("visible");
+              }
+            }, index * 120); // 120ms delay between each item
+          });
+        }
+      }
+
+      // Initial check and add scroll listener
+      window.addEventListener("scroll", handleScroll);
+      window.addEventListener("load", handleScroll);
+
+      // Trigger initial check after a small delay to ensure DOM is ready
+      setTimeout(handleScroll, 200);
+    </script>
   </body>
 </html>

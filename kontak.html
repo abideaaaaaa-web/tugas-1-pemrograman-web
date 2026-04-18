@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontak - Muqbil Ábid Al-Hafidz</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #1a1a2e;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background-color: #4a9d8e;
+        color: white;
+        padding: 12px 24px;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 15px rgba(74, 157, 142, 0.4);
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+
+      .back-button:hover {
+        background-color: #3d8577;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(74, 157, 142, 0.6);
+      }
+
+      .contact-container {
+        max-width: 900px;
+        margin: 60px auto;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease forwards;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Header Section */
+      .contact-header {
+        text-align: center;
+        padding: 50px 30px;
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        border-radius: 15px;
+        margin-bottom: 35px;
+        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
+      }
+
+      .contact-header h1 {
+        font-size: 3rem;
+        color: #f5e6d3;
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+
+      .contact-header p {
+        font-size: 1.2rem;
+        color: #b8b8b8;
+        line-height: 1.6;
+      }
+
+      .contact-header .highlight {
+        color: #4a9d8e;
+        font-weight: 600;
+      }
+
+      /* Main Contact Info */
+      .contact-main {
+        background: linear-gradient(135deg, #1a2332 0%, #2d3748 100%);
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
+        margin-bottom: 30px;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+        color: #f5e6d3;
+        margin-bottom: 25px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .section-title i {
+        color: #4a9d8e;
+        font-size: 1.6rem;
+      }
+
+      /* Contact Cards */
+      .contact-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-bottom: 35px;
+      }
+
+      .contact-card {
+        background: linear-gradient(180deg, #1e3a47 0%, #264653 100%);
+        border-radius: 12px;
+        padding: 28px;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(74, 157, 142, 0.2);
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-8px);
+        border-color: #4a9d8e;
+        box-shadow: 0 12px 35px rgba(74, 157, 142, 0.3);
+      }
+
+      .contact-card-icon {
+        width: 65px;
+        height: 65px;
+        background: linear-gradient(135deg, #4a9d8e 0%, #3d8577 100%);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.8rem;
+        margin-bottom: 18px;
+        transition: transform 0.3s ease;
+      }
+
+      .contact-card:hover .contact-card-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .contact-card-label {
+        font-size: 0.9rem;
+        color: #b8b8b8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+      }
+
+      .contact-card-value {
+        font-size: 1.2rem;
+        color: #f5e6d3;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .contact-card-subtitle {
+        font-size: 0.92rem;
+        color: #4a9d8e;
+        margin-top: 8px;
+        font-style: italic;
+      }
+
+      /* Social Media Grid */
+      .social-media-section {
+        margin-top: 10px;
+      }
+
+      .social-media-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+      }
+
+      .social-media-item {
+        background: linear-gradient(180deg, #1e3a47 0%, #264653 100%);
+        border-radius: 12px;
+        padding: 28px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(74, 157, 142, 0.2);
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .social-media-item:hover {
+        transform: translateY(-8px);
+        border-color: #4a9d8e;
+        box-shadow: 0 12px 35px rgba(74, 157, 142, 0.3);
+      }
+
+      .social-media-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #4a9d8e 0%, #3d8577 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+        color: white;
+        font-size: 2rem;
+        transition: transform 0.3s ease;
+      }
+
+      .social-media-item:hover .social-media-icon {
+        transform: scale(1.15) rotate(8deg);
+      }
+
+      .social-media-name {
+        font-size: 1.15rem;
+        color: #f5e6d3;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+
+      .social-media-handle {
+        font-size: 1rem;
+        color: #4a9d8e;
+        font-weight: 500;
+      }
+
+      /* CTA Box */
+      .cta-box {
+        background: linear-gradient(135deg, #4a9d8e 0%, #3d8577 100%);
+        border-radius: 15px;
+        padding: 35px;
+        text-align: center;
+        color: white;
+        box-shadow: 0 12px 35px rgba(74, 157, 142, 0.3);
+        margin-top: 30px;
+      }
+
+      .cta-box h2 {
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .cta-box p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        opacity: 0.95;
+        margin-bottom: 20px;
+      }
+
+      .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 40px;
+        background: white;
+        color: #4a9d8e;
+        text-decoration: none;
+        border-radius: 30px;
+        font-size: 1.15rem;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        background: #f5e6d3;
+      }
+
+      /* Availability Section */
+      .availability-section {
+        background: linear-gradient(135deg, #1a2332 0%, #2d3748 100%);
+        border-radius: 15px;
+        padding: 35px 40px;
+        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
+        margin-bottom: 30px;
+      }
+
+      .availability-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+        margin-top: 22px;
+      }
+
+      .availability-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 18px;
+        background: linear-gradient(180deg, #1e3a47 0%, #264653 100%);
+        border-radius: 10px;
+        border-left: 4px solid #4a9d8e;
+      }
+
+      .availability-icon {
+        color: #4a9d8e;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      .availability-text {
+        color: #f5e6d3;
+        font-size: 0.98rem;
+        line-height: 1.5;
+      }
+
+      .availability-text strong {
+        display: block;
+        color: #ffffff;
+        font-size: 1.05rem;
+        margin-bottom: 4px;
+      }
+
+      /* Footer */
+      .contact-footer {
+        text-align: center;
+        padding: 30px;
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        border-radius: 15px;
+        color: #b8b8b8;
+        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
+      }
+
+      .contact-footer p {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      .contact-footer .quote {
+        color: #4a9d8e;
+        font-style: italic;
+        font-size: 1.1rem;
+        margin-top: 12px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .contact-container {
+          margin-top: 80px;
+        }
+
+        .contact-header h1 {
+          font-size: 2.2rem;
+        }
+
+        .contact-main,
+        .availability-section {
+          padding: 25px;
+        }
+
+        .contact-cards-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .social-media-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .availability-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="index.html" class="back-button">
+      <i class="fas fa-arrow-left"></i> Kembali
+    </a>
+
+    <div class="contact-container">
+      <!-- Header -->
+      <div class="contact-header">
+        <h1><i class="fas fa-envelope-open-text"></i> Hubungi Saya</h1>
+        <p>
+          Mau kolaborasi, konsultasi project, atau sekadar menyapa?
+          <br />
+          Hubungi aku langsung melalui kontak di bawah ini!
+          <span class="highlight">Respon cepat dijamin!</span> 😊
+        </p>
+      </div>
+
+      <!-- Main Contact Info -->
+      <div class="contact-main">
+        <h2 class="section-title">
+          <i class="fas fa-address-book"></i> Informasi Kontak
+        </h2>
+
+        <!-- Contact Cards -->
+        <div class="contact-cards-grid">
+          <!-- Location Card -->
+          <div class="contact-card">
+            <div class="contact-card-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-card-label">Lokasi</div>
+            <div class="contact-card-value">Samarinda</div>
+            <div class="contact-card-subtitle">Kalimantan Timur, Indonesia</div>
+          </div>
+
+          <!-- WhatsApp Card -->
+          <a
+            href="https://wa.me/6282181703014"
+            target="_blank"
+            class="contact-card"
+          >
+            <div class="contact-card-icon">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <div class="contact-card-label">WhatsApp</div>
+            <div class="contact-card-value">082181703014</div>
+            <div class="contact-card-subtitle">Klik untuk chat langsung →</div>
+          </a>
+
+          <!-- Status Card -->
+          <div class="contact-card">
+            <div class="contact-card-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="contact-card-label">Status Saat Ini</div>
+            <div class="contact-card-value">Mahasiswa Aktif</div>
+            <div class="contact-card-subtitle">
+              S1 Pendidikan Komputer - Unmul
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="social-media-section">
+          <h2 class="section-title">
+            <i class="fas fa-share-alt"></i> Temukan Aku di Media Sosial
+          </h2>
+
+          <div class="social-media-grid">
+            <!-- Instagram -->
+            <a
+              href="https://instagram.com/jerruq"
+              target="_blank"
+              class="social-media-item"
+            >
+              <div class="social-media-icon">
+                <i class="fab fa-instagram"></i>
+              </div>
+              <div class="social-media-name">Instagram</div>
+              <div class="social-media-handle">@jerruq</div>
+            </a>
+
+            <!-- TikTok -->
+            <a
+              href="https://tiktok.com/@jerruq"
+              target="_blank"
+              class="social-media-item"
+            >
+              <div class="social-media-icon">
+                <i class="fab fa-tiktok"></i>
+              </div>
+              <div class="social-media-name">TikTok</div>
+              <div class="social-media-handle">@jerruq</div>
+            </a>
+
+            <!-- WhatsApp Direct -->
+            <a
+              href="https://wa.me/6282181703014"
+              target="_blank"
+              class="social-media-item"
+            >
+              <div class="social-media-icon">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <div class="social-media-name">WhatsApp</div>
+              <div class="social-media-handle">Chat Sekarang</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- CTA Box -->
+        <div class="cta-box">
+          <h2><i class="fas fa-bolt"></i> Respon Tercepat via WhatsApp!</h2>
+          <p>
+            Untuk respon paling cepat (biasanya dalam hitungan menit), hubungi
+            aku langsung lewat WhatsApp. Siap membantu untuk kolaborasi, editing
+            video, atau sekadar diskusi! 🚀
+          </p>
+          <a
+            href="https://wa.me/6282181703014"
+            target="_blank"
+            class="cta-button"
+          >
+            <i class="fab fa-whatsapp"></i> Chat WhatsApp Sekarang
+          </a>
+        </div>
+      </div>
+
+      <!-- Availability Section -->
+      <div class="availability-section">
+        <h2 class="section-title">
+          <i class="fas fa-clock"></i> Waktu Respons & Ketersediaan
+        </h2>
+
+        <div class="availability-grid">
+          <div class="availability-item">
+            <i class="fas fa-comments availability-icon"></i>
+            <div class="availability-text">
+              <strong>WhatsApp / DM</strong>
+              Respon super cepat • 1-2 jam
+            </div>
+          </div>
+
+          <div class="availability-item">
+            <i class="fas fa-calendar-check availability-icon"></i>
+            <div class="availability-text">
+              <strong>Hari Aktif</strong>
+              Senin - Sabtu • 08.00-22.00 WITA
+            </div>
+          </div>
+
+          <div class="availability-item">
+            <i class="fas fa-video availability-icon"></i>
+            <div class="availability-text">
+              <strong>Meeting Online</strong>
+              Tersedia Zoom/Google Meet
+            </div>
+          </div>
+
+          <div class="availability-item">
+            <i class="fas fa-handshake availability-icon"></i>
+            <div class="availability-text">
+              <strong>Open for:</strong>
+              Kolaborasi • Editing • Organisasi
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="contact-footer">
+        <p>
+          <i class="fas fa-heart" style="color: #4a9d8e"></i> Terima kasih sudah
+          berkunjung!
+        </p>
+        <p class="quote">
+          "Setiap pertanyaan adalah kesempatan untuk terhubung. Jangan ragu
+          menghubungi aku!"<br />
+          <strong>— Muqbil Ábid Al-Hafidz</strong>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
